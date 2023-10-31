@@ -1,5 +1,7 @@
 ﻿@page "/login"
 @using Shop.DataModels.CustomModels;
+@using Shop.Admin.Services;
+@inject IAdminPanelService adminPanelService;
 @inject NavigationManager navManager;
 
 <style>
@@ -96,6 +98,6 @@
 
     private void Login_Click()
     {
-        
+        adminPanelService.AdminLogin(loginModel);
     }
 }
