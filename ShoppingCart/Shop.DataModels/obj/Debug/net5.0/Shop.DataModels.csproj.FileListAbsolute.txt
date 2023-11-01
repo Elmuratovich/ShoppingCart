@@ -1,0 +1,11 @@
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\bin\Debug\net5.0\Shop.DataModels.deps.json
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\bin\Debug\net5.0\Shop.DataModels.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\bin\Debug\net5.0\Shop.DataModels.pdb
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\obj\Debug\net5.0\Shop.DataModels.GeneratedMSBuildEditorConfig.editorconfig
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\obj\Debug\net5.0\Shop.DataModels.AssemblyInfoInputs.cache
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\obj\Debug\net5.0\Shop.DataModels.AssemblyInfo.cs
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\obj\Debug\net5.0\Shop.DataModels.csproj.CoreCompileInputs.cache
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\obj\Debug\net5.0\Shop.DataModels.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\obj\Debug\net5.0\refint\Shop.DataModels.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\obj\Debug\net5.0\Shop.DataModels.pdb
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\obj\Debug\net5.0\ref\Shop.DataModels.dll

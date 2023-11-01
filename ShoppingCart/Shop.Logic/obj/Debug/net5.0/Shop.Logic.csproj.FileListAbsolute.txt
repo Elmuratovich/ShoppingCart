@@ -1,0 +1,11 @@
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Logic\bin\Debug\net5.0\Shop.Logic.deps.json
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Logic\bin\Debug\net5.0\Shop.Logic.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Logic\bin\Debug\net5.0\Shop.Logic.pdb
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Logic\obj\Debug\net5.0\Shop.Logic.GeneratedMSBuildEditorConfig.editorconfig
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Logic\obj\Debug\net5.0\Shop.Logic.AssemblyInfoInputs.cache
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Logic\obj\Debug\net5.0\Shop.Logic.AssemblyInfo.cs
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Logic\obj\Debug\net5.0\Shop.Logic.csproj.CoreCompileInputs.cache
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Logic\obj\Debug\net5.0\Shop.Logic.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Logic\obj\Debug\net5.0\refint\Shop.Logic.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Logic\obj\Debug\net5.0\Shop.Logic.pdb
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Logic\obj\Debug\net5.0\ref\Shop.Logic.dll
