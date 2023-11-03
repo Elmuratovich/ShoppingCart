@@ -4,6 +4,10 @@
 @using Shop.Admin.Services;
 @inject IAdminPanelService adminPanelService;
 @inject NavigationManager navManager;
+@inject ProtectedSessionStorage sessionStorage;
+@using System.Net.Http;
+@using System.Net.Http.Json;
+
 
 <style>
     .loginBox{
@@ -85,6 +89,9 @@
 </div>
 
 @code {
+    [CascadingParameter]
+    public EventCallback notify { get; set; }
+
     LoginModel loginModel { get; set; }
     public string alertMessage { get; set; }
 
@@ -94,8 +101,24 @@
         return base.OnInitializedAsync();
     }
 
-    private void Login_Click()
+    private async Task Login_Click()
     {
-        adminPanelService.AdminLogin(loginModel);
+
+        var _httpClient = new HttpClient();
+
+        var response = await adminPanelService.AdminLogin(loginModel);
+        if(response.Status == true)
+        {
+            var user_response = response.Message.Split("|");
+            await sessionStorage.SetAsync("adminKey", user_response[0]);
+            await sessionStorage.SetAsync("adminName", user_response[1]);
+            await sessionStorage.SetAsync("adminEmail", user_response[2]);
+            await notify.InvokeAsync();
+            navManager.NavigateTo("/");
+        }
+        else
+        {
+            alertMessage = response.Message;
+        }
     }
 }

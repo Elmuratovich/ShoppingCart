@@ -13,13 +13,6 @@ namespace Shop.Admin.Pages
     using global::System.Threading.Tasks;
     using global::Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\_Imports.razor"
-using System.Net.Http;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 2 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
@@ -83,6 +76,13 @@ using Shop.Admin.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 11 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\_Imports.razor"
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\Pages\Login.razor"
 using Shop.DataModels.CustomModels;
 
@@ -96,6 +96,20 @@ using Shop.Admin.Services;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 8 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\Pages\Login.razor"
+using System.Net.Http;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\Pages\Login.razor"
+using System.Net.Http.Json;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Components.RouteAttribute("/login")]
     public partial class Login : global::Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -105,8 +119,11 @@ using Shop.Admin.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 87 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\Pages\Login.razor"
+#line 91 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\Pages\Login.razor"
        
+    [CascadingParameter]
+    public EventCallback notify { get; set; }
+
     LoginModel loginModel { get; set; }
     public string alertMessage { get; set; }
 
@@ -116,14 +133,31 @@ using Shop.Admin.Services;
         return base.OnInitializedAsync();
     }
 
-    private void Login_Click()
+    private async Task Login_Click()
     {
-        adminPanelService.AdminLogin(loginModel);
+
+        var _httpClient = new HttpClient();
+
+        var response = await adminPanelService.AdminLogin(loginModel);
+        if(response.Status == true)
+        {
+            var user_response = response.Message.Split("|");
+            await sessionStorage.SetAsync("adminKey", user_response[0]);
+            await sessionStorage.SetAsync("adminName", user_response[1]);
+            await sessionStorage.SetAsync("adminEmail", user_response[2]);
+            await notify.InvokeAsync();
+            navManager.NavigateTo("/");
+        }
+        else
+        {
+            alertMessage = response.Message;
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ProtectedSessionStorage sessionStorage { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IAdminPanelService adminPanelService { get; set; }
     }

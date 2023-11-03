@@ -9,3 +9,7 @@ D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\obj\Debug\n
 D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\obj\Debug\net5.0\refint\Shop.DataModels.dll
 D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\obj\Debug\net5.0\Shop.DataModels.pdb
 D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\obj\Debug\net5.0\ref\Shop.DataModels.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\obj\Debug\net5.0\Shop.DataModels.csproj.AssemblyReference.cache
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\bin\Debug\net5.0\Shop.DataModels.runtimeconfig.json
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\bin\Debug\net5.0\Shop.DataModels.runtimeconfig.dev.json
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.DataModels\obj\Debug\net5.0\Shop.DataModels.genruntimeconfig.cache

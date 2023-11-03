@@ -82,6 +82,13 @@ using Shop.Admin.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\_Imports.razor"
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : global::Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -90,6 +97,24 @@ using Shop.Admin.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 7 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\Pages\Index.razor"
+      
+
+    [CascadingParameter]
+    public EventCallback notify { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await notify.InvokeAsync();
+        }
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

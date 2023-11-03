@@ -61,3 +61,12 @@ D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Web\obj\Debug\net5.0\S
 D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Web\obj\Debug\net5.0\Shop.Web.csproj.AssemblyReference.cache
 D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Web\bin\Debug\net5.0\Shop.DataModels.dll
 D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Web\bin\Debug\net5.0\Shop.DataModels.pdb
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Web\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Web\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Web\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Web\bin\Debug\net5.0\Microsoft.OpenApi.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Web\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Web\bin\Debug\net5.0\Swashbuckle.AspNetCore.Newtonsoft.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Web\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Web\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Web\obj\Debug\net5.0\Shop.Web.MvcApplicationPartsAssemblyInfo.cs

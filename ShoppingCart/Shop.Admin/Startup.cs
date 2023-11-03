@@ -4,10 +4,15 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
+using Shop.Admin.Services;
+using Shop.Logic.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace Shop.Admin
 {
@@ -26,6 +31,19 @@ namespace Shop.Admin
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+           
+            services.AddScoped<HttpClient>(s =>
+            {
+                var client = new HttpClient
+                {
+                    BaseAddress = new Uri("http://localhost:33324/") // Replace with your API base URL
+                };
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+                // Configure other HttpClient settings as needed
+                return client;
+            });
+
+            services.AddScoped<IAdminPanelService, AdminPanelService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +58,7 @@ namespace Shop.Admin
                 app.UseExceptionHandler("/Error");
             }
 
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();

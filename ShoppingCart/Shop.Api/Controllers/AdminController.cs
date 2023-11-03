@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shop.DataModels.CustomModels;
+using Shop.Logic.Services;
 
 namespace Shop.Api.Controllers
 {
@@ -23,6 +24,38 @@ namespace Shop.Api.Controllers
         public IActionResult AdminLogin(LoginModel loginModel)
         {
             var data = _adminService.AdminLogin(loginModel);
+            return Ok(data);
+        }
+
+        [HttpPost]
+        [Route("SaveCategory")]
+        public IActionResult SaveCategory(CategoryModel newCategory)
+        {
+            var data = _adminService.SaveCategory(newCategory);
+            return Ok(data);
+        }
+
+        [HttpGet]
+        [Route("GetCategories")]
+        public IActionResult GetGategories()
+        {
+            var data = _adminService.GetCategories();
+            return Ok(data);
+        }
+
+        [HttpPost]
+        [Route("UpdateCategory")]
+        public IActionResult UpdateCategory(CategoryModel categoryToUpdate)
+        {
+            var data = _adminService.UpdateCategory(categoryToUpdate);
+            return Ok(data);
+        }
+
+        [HttpPost]
+        [Route("DeleteCategory")]
+        public IActionResult DeleteCategory(CategoryModel categoryToDelete)
+        {
+            var data = _adminService.DeleteCategory(categoryToDelete);
             return Ok(data);
         }
     }

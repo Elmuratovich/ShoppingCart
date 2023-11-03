@@ -82,6 +82,27 @@ using Shop.Admin.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\_Imports.razor"
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\Pages\Category.razor"
+using Shop.DataModels.CustomModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\Pages\Category.razor"
+using Shop.Admin.Services;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Components.RouteAttribute("/category")]
     public partial class Category : global::Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -90,6 +111,121 @@ using Shop.Admin.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 173 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\Pages\Category.razor"
+       
+    [CascadingParameter]
+    public EventCallback notify { get; set; }
+
+    public CategoryModel categoryModel { get; set; }
+    public List<CategoryModel> categoryList { get; set; }
+    public CategoryModel categoryToUpdate { get; set; }
+    public CategoryModel categoryToDelete { get; set; }
+    public bool showEditPopup { get; set; }
+    public bool showDeletePopup { get; set; }
+    public bool successPoupup { get; set; }
+    public string Message = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        categoryModel = new CategoryModel();
+        await GetCategories();
+    }
+
+    private async Task SaveCategory()
+    {
+        await adminPanelService.SaveCategory(categoryModel);
+        Message = "Category Added Successfully !!";
+        ToggleSuccessPopup();
+        categoryModel = new CategoryModel();
+        await GetCategories();
+    }
+
+    private async Task UpdateCategory()
+    {
+        bool flag = await adminPanelService.UpdateCategory(categoryToUpdate);
+        ToggleEditPopup();
+        if (flag)
+        {
+            Message = "Category Updated Successfully !!";
+        }
+        else
+        {
+            Message = "Category Not Updated Try Again !!";
+        }
+
+        ToggleSuccessPopup();
+        categoryToUpdate = new CategoryModel();
+        await GetCategories();
+    }
+
+    private async Task DeleteCategory()
+    {
+        bool flag = await adminPanelService.DeleteCategory(categoryToDelete);
+        ToggleDeletePopup();
+        if (flag)
+        {
+            Message = "Category Deleted Successfully !!";
+        }
+        else
+        {
+            Message = "Category Not Deleted Try Again !!";
+        }
+
+        ToggleSuccessPopup();
+        categoryModel = new CategoryModel();
+        await GetCategories();
+    }
+
+    private async Task GetCategories()
+    {
+        categoryList = await adminPanelService.GetCategories();
+    }
+
+    private void ClearForm()
+    {
+        categoryModel = new CategoryModel();
+    }
+
+    private async Task EditButtonClick(CategoryModel _categoryToUpdate)
+    {
+        categoryToUpdate = _categoryToUpdate;
+        ToggleEditPopup();
+    }
+
+    private async Task DeleteButtonClick(CategoryModel _catecoryToDelete)
+    {
+        categoryToDelete = _catecoryToDelete;
+        ToggleDeletePopup();
+    }
+
+    private void ToggleEditPopup()
+    {
+        showEditPopup = showEditPopup == true ? false : true;
+    }
+
+    private void ToggleDeletePopup()
+    {
+        showDeletePopup = showDeletePopup == true ? false : true;
+    }
+
+    private void ToggleSuccessPopup()
+    {
+        successPoupup = successPoupup == true ? false : true;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await notify.InvokeAsync();
+        }
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IAdminPanelService adminPanelService { get; set; }
     }
 }
 #pragma warning restore 1591

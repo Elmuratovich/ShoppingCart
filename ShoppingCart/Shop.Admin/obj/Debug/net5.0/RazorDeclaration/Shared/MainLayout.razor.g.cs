@@ -82,6 +82,13 @@ using Shop.Admin.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\_Imports.razor"
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+
+#line default
+#line hidden
+#nullable disable
     public partial class MainLayout : LayoutComponentBase
     {
         #pragma warning disable 1998
@@ -90,19 +97,37 @@ using Shop.Admin.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 27 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\Shared\MainLayout.razor"
+#line 30 "D:\Angular\Blazor Projects\ShoppingCart\ShoppingCart\Shop.Admin\Shared\MainLayout.razor"
       
     public bool IsAdminLoggedIn = false;
+    EventCallback event_notify => EventCallback.Factory.Create(this, NotifyLayout);
 
-    public void Logout()
+    public async void Logout()
     {
+        await sessionStorage.DeleteAsync("adminKey");
+        await NotifyLayout();
         navManager.NavigateTo("/login");
+    }
+
+    private async Task NotifyLayout()
+    {
+        var adminSession = await sessionStorage.GetAsync<string>("adminKey");
+        if (adminSession.Success)
+        {
+            IsAdminLoggedIn = true;
+        }
+        else
+        {
+            IsAdminLoggedIn = false;
+            navManager.NavigateTo("/login");
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ProtectedSessionStorage sessionStorage { get; set; }
     }
 }
 #pragma warning restore 1591
